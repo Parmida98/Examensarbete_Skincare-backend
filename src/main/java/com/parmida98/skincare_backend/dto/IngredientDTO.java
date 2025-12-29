@@ -1,8 +1,7 @@
 package com.parmida98.skincare_backend.dto;
 
-public record SkinTypeDTO(
-        String label,
-        String types,
+public record IngredientDTO(
+        String inciName,
         String description
 ) {
 }

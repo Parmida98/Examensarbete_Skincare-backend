@@ -14,13 +14,21 @@ import java.util.List;
 @Service
 public class SkinTypeService {
 
+    private final SkinTypeRepository skinTypeRepository;
+
+    public SkinTypeService(SkinTypeRepository skinTypeRepository) {
+        this.skinTypeRepository = skinTypeRepository;
+    }
+
     public List<SkinTypeDTO> getAllSkinTypes() {
-        return List.of(
-                new SkinTypeDTO("NORMAL", "Normal skin", "Neither particularly dry nor oily, usually balanced"),
-                new SkinTypeDTO("DRY", "Dry skin", "May feel tight, dry and sometimes flaky"),
-                new SkinTypeDTO("OILY", "Oily skin", "Produces more sebum and becomes slightly shiny, especially in the T-zone. May be more acne prone"),
-                new SkinTypeDTO("COMBINATION", "Combination skin", "Mix of dry/normal and oily skin, often oily T-zone"),
-                new SkinTypeDTO("SENSITIVE", "Sensitive skin", "Reacts easily with redness, burning or irritation")
-        );
+        return skinTypeRepository.findAll()     // Hämtar rader från tabellen skin_type. JPA gör varje rad till ett Entity-objekt:
+                .stream                         // filtrera, mappa, sortera o samla resultat
+                .map(ste -> new SkinTypeDTO(     // “Gör om varje element till något annat”, från SkinTypeEntity till dto
+                        ste.getLabel(),
+                        ste.getTypes(),
+                        ste.getDescription()
+                ))
+                .sorted((a, b) -> a.code().compareToIgnoreCase(b.code())) // sorterar resultatet alfabetiskt
+                .toList();
     }
 }

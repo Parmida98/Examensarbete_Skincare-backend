@@ -1,0 +1,65 @@
+-- skin types
+INSERT INTO skin_type (label, types, description)
+VALUES
+    ('NORMAL',      'Normal skin',      'Balanced skin with minimal dryness or oiliness.'),
+    ('DRY',         'Dry skin',         'Often feels tight; may appear flaky or rough.'),
+    ('OILY',        'Oily skin',        'Produces excess sebum and can look shiny, especially in the T-zone.'),
+    ('COMBINATION', 'Combination skin', 'Mix of oily and dry/normal areas, often oily in the T-zone.'),
+    ('SENSITIVE',   'Sensitive skin',   'Easily irritated; may react with redness, stinging, or burning.')
+ON CONFLICT (lable) DO NOTHING;
+
+-- ingredients
+INSERT INTO ingredient (inci_name, description)
+VALUES
+    ('Glycerin',           'A humectant that helps attract and retain moisture in the skin.',
+    ('Hyaluronic Acid',    'A humectant that can hold water and support skin hydration.',
+    ('Niacinamide',        'A form of vitamin B3 often used for barrier support and uneven tone.',
+    ('Ceramide',        'A skin-identical lipid that supports the skin barrier.',
+    ('Panthenol',          'Pro-vitamin B5, commonly used for soothing and hydration support.',
+    ('Allantoin',          'Often used to soothe and support comfort in sensitive skin.',
+    ('Salicylic Acid',     'A BHA exfoliant commonly used for oily skin and clogged pores.',
+    ('Azelaic Acid',       'Often used for uneven tone and blemish-prone skin; can be gentle for many.',
+    ('Centella Asiatica',  'Botanical extract commonly used for soothing and barrier support.',
+    ('Squalane',           'An emollient that supports softness and reduces moisture loss.'
+    ON CONFLICT (inci_name) DO NOTHING;
+
+-- mapping: skin type -> ingredients VAD STÅR ST FÖR
+-- DRY -> Glycerin, Hyaluronic Acid, Ceramide, Squalane
+INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
+SELECT st.id, i.id
+FROM skin_type st
+JOIN ingredient i ON i.inci_name in ('Glycerin', 'Hyaluronic Acid', 'Ceramide', 'Squalane')
+WHERE st.lable = "DRY"
+ON CONFLICT DO NOTHING;
+
+-- OILY -> Niacinamide, Salicylic Acid, Azelaic Acid
+INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
+SELECT st.id, i.id
+FROM skin_type st
+JOIN ingredient i ON i.inci_name IN ('Niacinamide', 'Salicylic Acid', 'Azelaic Acid')
+WHERE st.label = 'OILY'
+ON CONFLICT DO NOTHING;
+
+-- SENSITIVE -> Panthenol, Allantoin, Centella Asiatica
+INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
+SELECT st.id, i.id
+FROM skin_type st
+JOIN ingredient i ON i.inci_name IN ('Panthenol', 'Allantoin', 'Centella Asiatica')
+WHERE st.label = 'SENSITIVE'
+ON CONFLICT DO NOTHING;
+
+-- COMBINATION -> Niacinamide, Glycerin, Azelaic Acid
+INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
+SELECT st.id, i.id
+FROM skin_type st
+JOIN ingredient i ON i.inci_name IN ('Niacinamide', 'Glycerin', 'Azelaic Acid')
+WHERE st.label = 'COMBINATION'
+ON CONFLICT DO NOTHING;
+
+-- NORMAL -> Glycerin, Niacinamide
+INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
+SELECT st.id, i.id
+FROM skin_type st
+JOIN ingredient i ON i.inci_name IN ('Glycerin', 'Niacinamide')
+WHERE st.label = 'NORMAL'
+ON CONFLICT DO NOTHING;

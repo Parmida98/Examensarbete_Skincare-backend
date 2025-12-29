@@ -1,6 +1,7 @@
 package com.parmida98.skincare_backend.service;
 
 import com.parmida98.skincare_backend.dto.SkinTypeDTO;
+import com.parmida98.skincare_backend.repository.SkinTypeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,14 +22,14 @@ public class SkinTypeService {
     }
 
     public List<SkinTypeDTO> getAllSkinTypes() {
-        return skinTypeRepository.findAll()     // Hämtar rader från tabellen skin_type. JPA gör varje rad till ett Entity-objekt:
-                .stream                         // filtrera, mappa, sortera o samla resultat
-                .map(ste -> new SkinTypeDTO(     // “Gör om varje element till något annat”, från SkinTypeEntity till dto
+        return skinTypeRepository.findAll()                      // Hämtar rader från tabellen skin_type. JPA gör varje rad till ett Entity-objekt:
+                .stream()                                        // filtrera, mappa, sortera o samla resultat
+                .map(ste -> new SkinTypeDTO(      // “Gör om varje element till något annat”, från SkinTypeEntity till dto
                         ste.getLabel(),
                         ste.getTypes(),
                         ste.getDescription()
                 ))
-                .sorted((a, b) -> a.code().compareToIgnoreCase(b.code())) // sorterar resultatet alfabetiskt
+                .sorted((a, b) -> a.label().compareToIgnoreCase(b.label())) // sorterar resultatet alfabetiskt
                 .toList();
     }
 }

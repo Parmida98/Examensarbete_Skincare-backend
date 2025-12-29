@@ -72,3 +72,34 @@ Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.2.jar:7.0.2]
 	... 20 common frames omitted
 
+2025-12-28T17:32:30.421+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 32096 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
+2025-12-28T17:32:30.427+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T17:32:32.212+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-28T17:32:32.213+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2025-12-28T17:32:32.832+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-28T17:32:33.519+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@49c51e52
+2025-12-28T17:32:33.522+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-28T17:32:33.608+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare-backend (PostgreSQL 18.0)
+2025-12-28T17:32:34.043+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.157s)
+2025-12-28T17:32:34.043+01:00  WARN 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2025-12-28T17:32:34.091+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2025-12-28T17:32:34.099+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2025-12-28T17:32:34.222+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2025-12-28T17:32:34.363+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2025-12-28T17:32:35.807+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare-backend]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.0
+	Default catalog/schema: skincare-backend/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-28T17:32:36.710+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-28T17:32:37.374+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 7.524 seconds (process running for 9.167)
+2025-12-28T17:32:56.621+01:00  INFO 32096 --- [skincare-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-28T17:34:19.182+01:00  INFO 32096 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-28T17:34:19.187+01:00  INFO 32096 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

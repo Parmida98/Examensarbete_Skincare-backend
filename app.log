@@ -1,3 +1,77 @@
+2025-12-29T19:06:59.722+01:00  INFO 41890 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 41890 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
+2025-12-29T19:06:59.734+01:00  INFO 41890 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T19:07:01.890+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T19:07:01.891+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2025-12-29T19:07:04.879+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-29T19:07:06.713+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c35b60
+2025-12-29T19:07:06.716+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-29T19:07:06.814+01:00  INFO 41890 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
+2025-12-29T19:07:08.092+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-29T19:07:08.259+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-29T19:07:08.263+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-29T19:07:08.322+01:00 ERROR 41890 --- [skincare-backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -187801841
+-> Resolved locally    : 870636171
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : -523622267
+-> Resolved locally    : 111619054
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:976) ~[spring-context-7.0.2.jar:7.0.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:620) ~[spring-context-7.0.2.jar:7.0.2]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.1.jar:4.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.1.jar:4.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.1.jar:4.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.1.jar:4.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.1.jar:4.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.1.jar:4.0.1]
+	at com.parmida98.skincare_backend.SkincareBackendApplication.main(SkincareBackendApplication.java:10) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.1.jar:4.0.1]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -187801841
+-> Resolved locally    : 870636171
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : -523622267
+-> Resolved locally    : 111619054
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.2.jar:7.0.2]
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 1
+-> Applied to database : -187801841
+-> Resolved locally    : 870636171
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2
+-> Applied to database : -523622267
+-> Resolved locally    : 111619054
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$3(Flyway.java:199) ~[flyway-core-11.14.1.jar:na]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:240) ~[flyway-core-11.14.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:186) ~[flyway-core-11.14.1.jar:na]
+	at org.springframework.boot.flyway.autoconfigure.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:67) ~[spring-boot-flyway-4.0.1.jar:4.0.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.2.jar:7.0.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.2.jar:7.0.2]
+	... 20 common frames omitted
+
 2025-12-28T17:32:30.421+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 32096 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
 2025-12-28T17:32:30.427+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
 2025-12-28T17:32:32.212+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]

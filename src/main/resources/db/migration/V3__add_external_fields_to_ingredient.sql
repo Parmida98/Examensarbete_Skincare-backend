@@ -1,3 +1,0 @@
--- V3 placeholder
--- This migration will add columns for external sources:
--- cas_number, ec_number, source, external_last_fetched_at, etc.

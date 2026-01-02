@@ -6,22 +6,22 @@ VALUES
     ('OILY',        'Oily skin',        'Produces excess sebum and can look shiny, especially in the T-zone.'),
     ('COMBINATION', 'Combination skin', 'Mix of oily and dry/normal areas, often oily in the T-zone.'),
     ('SENSITIVE',   'Sensitive skin',   'Easily irritated; may react with redness, stinging, or burning.')
-ON CONFLICT (lable) DO NOTHING;
+ON CONFLICT (label) DO NOTHING;
 
 -- ingredients
-INSERT INTO ingredient (inci_name, description)
+INSERT INTO ingredient (inci_name, description, created_at, updated_at)
 VALUES
-    ('Glycerin',           'A humectant that helps attract and retain moisture in the skin.',
-    ('Hyaluronic Acid',    'A humectant that can hold water and support skin hydration.',
-    ('Niacinamide',        'A form of vitamin B3 often used for barrier support and uneven tone.',
-    ('Ceramide',        'A skin-identical lipid that supports the skin barrier.',
-    ('Panthenol',          'Pro-vitamin B5, commonly used for soothing and hydration support.',
-    ('Allantoin',          'Often used to soothe and support comfort in sensitive skin.',
-    ('Salicylic Acid',     'A BHA exfoliant commonly used for oily skin and clogged pores.',
-    ('Azelaic Acid',       'Often used for uneven tone and blemish-prone skin; can be gentle for many.',
-    ('Centella Asiatica',  'Botanical extract commonly used for soothing and barrier support.',
-    ('Squalane',           'An emollient that supports softness and reduces moisture loss.'
-    ON CONFLICT (inci_name) DO NOTHING;
+    ('Glycerin',           'A humectant that helps attract and retain moisture in the skin.', NOW(), NOW()),
+    ('Hyaluronic Acid',    'A humectant that can hold water and support skin hydration.', NOW(), NOW()),
+    ('Niacinamide',        'A form of vitamin B3 often used for barrier support and uneven tone.', NOW(), NOW()),
+    ('Ceramide NP',        'A skin-identical lipid that supports the skin barrier.', NOW(), NOW()),
+    ('Panthenol',          'Pro-vitamin B5, commonly used for soothing and hydration support.', NOW(), NOW()),
+    ('Allantoin',          'Often used to soothe and support comfort in sensitive skin.', NOW(), NOW()),
+    ('Salicylic Acid',     'A BHA exfoliant commonly used for oily skin and clogged pores.', NOW(), NOW()),
+    ('Azelaic Acid',       'Often used for uneven tone and blemish-prone skin; can be gentle for many.', NOW(), NOW()),
+    ('Centella Asiatica',  'Botanical extract commonly used for soothing and barrier support.', NOW(), NOW()),
+    ('Squalane',           'An emollient that supports softness and reduces moisture loss.', NOW(), NOW())
+ON CONFLICT (inci_name) DO NOTHING;
 
 -- mapping: skin type -> ingredients VAD STÅR ST FÖR
 -- DRY -> Glycerin, Hyaluronic Acid, Ceramide, Squalane
@@ -29,7 +29,7 @@ INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
 SELECT st.id, i.id
 FROM skin_type st
 JOIN ingredient i ON i.inci_name in ('Glycerin', 'Hyaluronic Acid', 'Ceramide', 'Squalane')
-WHERE st.lable = "DRY"
+WHERE st.label = 'DRY'
 ON CONFLICT DO NOTHING;
 
 -- OILY -> Niacinamide, Salicylic Acid, Azelaic Acid

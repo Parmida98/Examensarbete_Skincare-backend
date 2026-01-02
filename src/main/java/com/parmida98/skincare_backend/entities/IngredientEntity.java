@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,6 +30,8 @@ public class IngredientEntity {
     @ManyToMany(mappedBy = "ingredients")
     private Set<SkinTypeEntity> skinTypes = new HashSet<>();
 
+    public Set<SkinTypeEntity> getSkinTypes() { return skinTypes; }
+
     public IngredientEntity() {}
 
     public Long getId() {
@@ -51,5 +54,4 @@ public class IngredientEntity {
     }
     public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
     public void setUpdatedAt(OffsetDateTime updatedAt) { this.updatedAt = updatedAt; }
-
 }

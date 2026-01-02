@@ -3,7 +3,9 @@ package com.parmida98.skincare_backend.dataset;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.parmida98.skincare_backend.entities.IngredientEntity;
+import com.parmida98.skincare_backend.entities.SkinTypeEntity;
 import com.parmida98.skincare_backend.repository.IngredientRepository;
+import com.parmida98.skincare_backend.repository.SkinTypeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -28,12 +30,13 @@ public class IngredientDatasetImportService {
 
     private final ObjectMapper objectMapper;
     private final ResourceLoader resourceLoader;
+    private final SkinTypeRepository skinTypeRepository;
     private final IngredientRepository ingredientRepository;
 
-
-    public IngredientDatasetImportService(ObjectMapper objectMapper, ResourceLoader resourceLoader, IngredientRepository ingredientRepository) {
+    public IngredientDatasetImportService(ObjectMapper objectMapper, ResourceLoader resourceLoader, SkinTypeRepository skinTypeRepository, IngredientRepository ingredientRepository) {
         this.objectMapper = objectMapper;
         this.resourceLoader = resourceLoader;
+        this.skinTypeRepository = skinTypeRepository;
         this.ingredientRepository = ingredientRepository;
     }
 
@@ -68,7 +71,7 @@ public class IngredientDatasetImportService {
                 String description = item.description() == null ? null : item.description().trim();
 
                 // finns ingrediensen -> använd den. Annars -> skapa ny
-                IngredientEntity entity = ingredientRepository.findByInciName(inciName)
+                IngredientEntity entity = ingredientRepository.findByInciNameIgnoreCase(inciName)
                         .orElseGet(() -> {
                             IngredientEntity created = new IngredientEntity();
                             created.setInciName(inciName);
@@ -100,6 +103,22 @@ public class IngredientDatasetImportService {
                 } else {
                     skipped++;
                 }
+
+                // skapar mapping mellan skin type och ingrediens
+                if (item.skinTypes() != null) {
+                    for (String stLabel : item.skinTypes()) {
+                        if (isBlank(stLabel)) continue;
+
+                        SkinTypeEntity skinType = skinTypeRepository.findByLabel(stLabel.trim())
+                                .orElseThrow(() -> new IllegalArgumentException("Unknown skin type: " + stLabel));
+
+                        boolean added = skinType.getIngredients().add(entity);
+                        if (added) {
+                            skinTypeRepository.save(skinType);
+                        }
+                    }
+                }
+
             }
              logger.info("Ingredient dataset imported successfully. Total={}, Inserted={}, Updated={}, Skipped={}",
                      items.size(), inserted, updated, skipped);
@@ -108,7 +127,7 @@ public class IngredientDatasetImportService {
 
         } catch (Exception e) {
             logger.error("Ingredient dataset import failed. (path{})", datasetPath, e);
-            throw new IllegalStateException();
+            throw new IllegalStateException("Ingredient dataset import failed: " + datasetPath, e);
         }
     }
 

@@ -29,6 +29,7 @@ public class SkinTypeEntity {
             joinColumns = @JoinColumn(name = "skin_type_id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id")
     )
+
     private Set<IngredientEntity> ingredients = new HashSet<>();
 
     public SkinTypeEntity() {}
@@ -36,36 +37,35 @@ public class SkinTypeEntity {
     public Long getId() {
         return id;
     }
-
     public String getLabel() {
         return label;
+    }
+    public String getTypes() {
+        return types;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public Set<IngredientEntity> getIngredients() {
+        return ingredients;
     }
 
     public void setLabel(String label) {
         this.label = label;
     }
-
-    public String getTypes() {
-        return types;
-    }
-
     public void setTypes(String types) {
         this.types = types;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Set<IngredientEntity> getIngredients() {
-        return ingredients;
-    }
-
     public void setIngredients(Set<IngredientEntity> ingredients) {
         this.ingredients = ingredients;
     }
+
+    public void addIngredient(IngredientEntity ingredient) {
+        ingredients.add(ingredient);
+        ingredient.getSkinTypes().add(this);
+    }
+
 }

@@ -1,105 +1,32 @@
-2025-12-29T19:06:59.722+01:00  INFO 41890 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 41890 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2025-12-29T19:06:59.734+01:00  INFO 41890 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-12-29T19:07:01.890+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-29T19:07:01.891+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2025-12-29T19:07:04.879+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-29T19:07:06.713+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2c35b60
-2025-12-29T19:07:06.716+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-29T19:07:06.814+01:00  INFO 41890 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
-2025-12-29T19:07:08.092+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-29T19:07:08.259+01:00  INFO 41890 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-12-29T19:07:08.263+01:00  INFO 41890 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-12-29T19:07:08.322+01:00 ERROR 41890 --- [skincare-backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
-Migration checksum mismatch for migration version 1
--> Applied to database : -187801841
--> Resolved locally    : 870636171
-Either revert the changes to the migration, or run repair to update the schema history.
-Migration checksum mismatch for migration version 2
--> Applied to database : -523622267
--> Resolved locally    : 111619054
-Either revert the changes to the migration, or run repair to update the schema history.
-Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:976) ~[spring-context-7.0.2.jar:7.0.2]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:620) ~[spring-context-7.0.2.jar:7.0.2]
-	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.1.jar:4.0.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.1.jar:4.0.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.1.jar:4.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.1.jar:4.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.1.jar:4.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.1.jar:4.0.1]
-	at com.parmida98.skincare_backend.SkincareBackendApplication.main(SkincareBackendApplication.java:10) ~[main/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.1.jar:4.0.1]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/flyway/autoconfigure/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
-Migration checksum mismatch for migration version 1
--> Applied to database : -187801841
--> Resolved locally    : 870636171
-Either revert the changes to the migration, or run repair to update the schema history.
-Migration checksum mismatch for migration version 2
--> Applied to database : -523622267
--> Resolved locally    : 111619054
-Either revert the changes to the migration, or run repair to update the schema history.
-Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309) ~[spring-beans-7.0.2.jar:7.0.2]
-	... 13 common frames omitted
-Caused by: org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
-Migration checksum mismatch for migration version 1
--> Applied to database : -187801841
--> Resolved locally    : 870636171
-Either revert the changes to the migration, or run repair to update the schema history.
-Migration checksum mismatch for migration version 2
--> Applied to database : -523622267
--> Resolved locally    : 111619054
-Either revert the changes to the migration, or run repair to update the schema history.
-Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
-	at org.flywaydb.core.Flyway.lambda$migrate$3(Flyway.java:199) ~[flyway-core-11.14.1.jar:na]
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:240) ~[flyway-core-11.14.1.jar:na]
-	at org.flywaydb.core.Flyway.migrate(Flyway.java:186) ~[flyway-core-11.14.1.jar:na]
-	at org.springframework.boot.flyway.autoconfigure.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:67) ~[spring-boot-flyway-4.0.1.jar:4.0.1]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864) ~[spring-beans-7.0.2.jar:7.0.2]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813) ~[spring-beans-7.0.2.jar:7.0.2]
-	... 20 common frames omitted
-
-2025-12-28T17:32:30.421+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 32096 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2025-12-28T17:32:30.427+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2025-12-28T17:32:32.212+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-12-28T17:32:32.213+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2025-12-28T17:32:32.832+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-28T17:32:33.519+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@49c51e52
-2025-12-28T17:32:33.522+01:00  INFO 32096 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-28T17:32:33.608+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare-backend (PostgreSQL 18.0)
-2025-12-28T17:32:34.043+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.157s)
-2025-12-28T17:32:34.043+01:00  WARN 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
-2025-12-28T17:32:34.091+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
-2025-12-28T17:32:34.099+01:00  INFO 32096 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2025-12-28T17:32:34.222+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2025-12-28T17:32:34.363+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2025-12-28T17:32:35.807+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare-backend]
+2026-01-03T00:02:26.798+01:00  INFO 70628 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 70628 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
+2026-01-03T00:02:26.805+01:00  INFO 70628 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-01-03T00:02:28.863+01:00  INFO 70628 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-03T00:02:28.864+01:00  INFO 70628 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-03T00:02:29.614+01:00  INFO 70628 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-03T00:02:30.548+01:00  INFO 70628 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3ffe28ca
+2026-01-03T00:02:30.551+01:00  INFO 70628 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-03T00:02:30.668+01:00  INFO 70628 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
+2026-01-03T00:02:31.046+01:00  INFO 70628 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.138s)
+2026-01-03T00:02:31.077+01:00  INFO 70628 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
+2026-01-03T00:02:31.083+01:00  INFO 70628 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-01-03T00:02:31.197+01:00  INFO 70628 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-01-03T00:02:31.321+01:00  INFO 70628 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-01-03T00:02:34.663+01:00  INFO 70628 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
 	Database version: 18.0
-	Default catalog/schema: skincare-backend/public
+	Default catalog/schema: skincare/public
 	Autocommit mode: undefined/unknown
 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
 	JDBC fetch size: none
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-28T17:32:36.710+01:00  INFO 32096 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-28T17:32:37.374+01:00  INFO 32096 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 7.524 seconds (process running for 9.167)
-2025-12-28T17:32:56.621+01:00  INFO 32096 --- [skincare-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-28T17:34:19.182+01:00  INFO 32096 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-12-28T17:34:19.187+01:00  INFO 32096 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-03T00:02:36.327+01:00  INFO 70628 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-03T00:02:37.552+01:00  INFO 70628 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 11.362 seconds (process running for 13.049)
+2026-01-03T00:02:37.556+01:00  INFO 70628 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
+2026-01-03T00:02:39.069+01:00  INFO 70628 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=22, Updated=5, Skipped=0
+2026-01-03T00:04:42.673+01:00  INFO 70628 --- [skincare-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-03T00:07:28.484+01:00  INFO 70628 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-03T00:07:28.488+01:00  INFO 70628 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

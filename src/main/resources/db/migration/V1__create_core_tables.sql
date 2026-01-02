@@ -12,7 +12,9 @@ CREATE TABLE IF NOT EXISTS skin_type (
 CREATE TABLE IF NOT EXISTS ingredient (
     id          BIGSERIAL PRIMARY KEY,
     inci_name   VARCHAR(200) NOT NULL UNIQUE,
-    description TEXT
+    description TEXT,
+    created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    updated_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
 
 
@@ -28,7 +30,7 @@ CREATE TABLE IF NOT EXISTS skin_type_ingredient(
 
     -- Foreign key från skin_type_ingredient till skin_type
     CONSTRAINT fk_sti_skin_type
-        FOREIGN KEY (skin_types_id)
+        FOREIGN KEY (skin_type_id)
         REFERENCES skin_type (id)
         ON DELETE CASCADE,
 
@@ -41,5 +43,5 @@ CREATE TABLE IF NOT EXISTS skin_type_ingredient(
     );
 
 -- Skapa ett snabb-uppslagsregister för kolumnen skin_type_id i tabellen skin_type_ingredient
-CREATE INDEX IF NOT EXISTS idx_sti_skin_types_id ON skin_type_ingredient (skin_types_id);
+CREATE INDEX IF NOT EXISTS idx_sti_skin_type_id ON skin_type_ingredient (skin_type_id);
 CREATE INDEX IF NOT EXISTS idx_sti_ingredient_id ON skin_type_ingredient (ingredient_id);

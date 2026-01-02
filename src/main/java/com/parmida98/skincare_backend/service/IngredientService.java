@@ -29,7 +29,6 @@ public class IngredientService {
                 .orElseThrow(() -> new IllegalArgumentException("Unknown skinType: " + skinTypeLabel));
 
 
-        // VAD HÄNDER HÄR, KOLLA UPP HELLA DENNA DEL
         return skinType.getIngredients()
                 .stream()                                                                                        // bearbeta listan steg för steg. Stream låter: filtrera, mappa, sortera o samla resultat
                 .map(i -> new IngredientDTO(i.getInciName(), i.getDescription()))                 // map betyder:“Gör om varje element till något annat”, alltså från entity till dto

@@ -1,0 +1,137 @@
+[
+  {
+    "inciName": "Glycerin",
+    "description": "Glycerin is a humectant that attracts and retains moisture in the skin. It pulls water into the outer skin layer, improving hydration and softness. This helps maintain a healthy skin barrier and prevents dryness. Glycerin is lightweight and non-comedogenic. It is well tolerated by most skin types.",
+    "skinTypes": ["NORMAL", "DRY", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Hyaluronic Acid",
+    "description": "Hyaluronic Acid is a powerful humectant that holds up to 1000 times its weight in water. It deeply hydrates the skin and gives a plump appearance. This ingredient reduces the appearance of fine lines caused by dehydration. It improves skin elasticity and smoothness.",
+    "skinTypes": ["NORMAL", "DRY", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Ceramide",
+    "description": "Ceramides are lipids that naturally occur in the skin barrier. They help lock in moisture and protect against environmental damage. Ceramides strengthen the skin barrier and reduce water loss. This leads to healthier and more resilient skin.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Squalane",
+    "description": "Squalane is a lightweight emollient that mimics the skin’s natural oils. It softens and smooths the skin without clogging pores. This ingredient helps prevent moisture loss and supports the skin barrier. It absorbs quickly and leaves no greasy residue.",
+    "skinTypes": ["NORMAL", "DRY", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Snail Mucin",
+    "description": "Snail Mucin is known for its repairing and hydrating properties. It helps improve skin texture and elasticity. The ingredient supports skin regeneration and reduces the appearance of scars. It also strengthens the skin barrier.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Niacinamide",
+    "description": "Niacinamide is a form of vitamin B3 that balances oil production. It helps reduce redness and uneven skin tone. This ingredient strengthens the skin barrier and minimizes pores. It also improves skin texture over time.",
+    "skinTypes": ["NORMAL", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Panthenol",
+    "description": "Panthenol, also known as provitamin B5, has soothing and moisturizing effects. It helps calm irritated skin and supports healing. This ingredient improves skin softness and elasticity. It also strengthens the skin barrier.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Salicylic Acid",
+    "description": "Salicylic Acid is a beta hydroxy acid that exfoliates inside pores. It helps reduce acne, blackheads, and excess oil. This ingredient has anti-inflammatory properties and clears clogged pores. It improves overall skin clarity.",
+    "skinTypes": ["OILY", "COMBINATION"]
+  },
+  {
+    "inciName": "Azelaic Acid",
+    "description": "Azelaic Acid helps reduce acne and redness. It has antibacterial and anti-inflammatory properties. This ingredient evens out skin tone and reduces hyperpigmentation. It also helps keep pores clear.",
+    "skinTypes": ["NORMAL", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Centella Asiatica",
+    "description": "Centella Asiatica is a soothing plant extract used in skincare. It helps calm inflammation and redness. The ingredient supports skin healing and collagen production. It strengthens the skin barrier.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Vitamin C",
+    "description": "Vitamin C is a powerful antioxidant that brightens the skin. It helps reduce dark spots and uneven skin tone. This ingredient supports collagen production and improves skin firmness. It also protects against environmental damage.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION"]
+  },
+  {
+    "inciName": "Retinol",
+    "description": "Retinol is a vitamin A derivative that promotes skin renewal. It helps reduce fine lines, acne, and uneven texture. This ingredient increases cell turnover and boosts collagen production. It improves overall skin appearance.",
+    "skinTypes": ["NORMAL", "OILY", "COMBINATION"]
+  },
+  {
+    "inciName": "Peptides",
+    "description": "Peptides are amino acid chains that support collagen production. They help improve skin firmness and elasticity. This ingredient reduces the appearance of fine lines. Peptides strengthen the skin structure over time.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Lactic Acid",
+    "description": "Lactic Acid is an alpha hydroxy acid that gently exfoliates the skin. It removes dead skin cells and improves texture. This ingredient also helps retain moisture. It leaves the skin smoother and brighter.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION"]
+  },
+  {
+    "inciName": "Witch Hazel",
+    "description": "Witch Hazel is a natural astringent that tightens pores. It helps control oil and reduce inflammation. This ingredient soothes irritated skin and reduces redness. It provides a refreshing effect.",
+    "skinTypes": ["OILY", "COMBINATION"]
+  },
+  {
+    "inciName": "Rice Water",
+    "description": "Rice Water is rich in antioxidants and amino acids. It helps brighten and soften the skin. This ingredient improves skin tone and texture. It also has soothing properties.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Shea Butter",
+    "description": "Shea Butter is a rich emollient that deeply nourishes the skin. It helps repair the skin barrier and prevent moisture loss. This ingredient soothes dry and irritated skin. It provides long-lasting hydration.",
+    "skinTypes": ["DRY", "SENSITIVE"]
+  },
+  {
+    "inciName": "Propolis",
+    "description": "Propolis is a bee-derived ingredient with antibacterial properties. It helps calm inflammation and support healing. This ingredient strengthens the skin barrier. It also improves skin clarity.",
+    "skinTypes": ["NORMAL", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Green Tea Extract",
+    "description": "Green Tea Extract is rich in antioxidants that protect the skin. It helps reduce redness and inflammation. This ingredient controls excess oil and soothes the skin. It supports overall skin health.",
+    "skinTypes": ["NORMAL", "OILY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Aloe Vera",
+    "description": "Aloe Vera is known for its soothing and hydrating properties. It helps calm irritated and sensitive skin. This ingredient supports skin healing and hydration. It provides a cooling effect.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Mugwort",
+    "description": "Mugwort is a calming herbal extract used in skincare. It helps reduce redness and inflammation. This ingredient soothes sensitive skin and supports barrier repair. It also has antioxidant benefits.",
+    "skinTypes": ["NORMAL", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Rose Water",
+    "description": "Rose Water hydrates and refreshes the skin. It helps soothe irritation and balance the skin. This ingredient provides a mild antioxidant effect. It improves skin comfort.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Glycolic Acid",
+    "description": "Glycolic Acid is an alpha hydroxy acid that exfoliates the skin surface. It removes dead skin cells and improves texture. This ingredient brightens the skin and reduces dullness. It supports skin renewal.",
+    "skinTypes": ["NORMAL", "COMBINATION"]
+  },
+  {
+    "inciName": "Soybean Extract",
+    "description": "Soybean Extract is rich in antioxidants and nutrients. It helps improve skin elasticity and hydration. This ingredient supports a healthy skin barrier. It also helps smooth the skin.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Black Rice",
+    "description": "Black Rice is rich in antioxidants that protect the skin. It helps improve elasticity and hydration. This ingredient supports anti-aging benefits. It strengthens the skin barrier.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Dimethicone",
+    "description": "Dimethicone is a silicone that smooths the skin surface. It helps prevent moisture loss by forming a protective barrier. This ingredient improves skin texture and softness. It is non-comedogenic.",
+    "skinTypes": ["NORMAL", "DRY", "COMBINATION", "SENSITIVE"]
+  },
+  {
+    "inciName": "Lanolin",
+    "description": "Lanolin is an emollient derived from wool that deeply moisturizes the skin. It helps repair and protect the skin barrier. This ingredient is effective for very dry skin. It reduces moisture loss.",
+    "skinTypes": ["DRY", "SENSITIVE"]
+  }
+]

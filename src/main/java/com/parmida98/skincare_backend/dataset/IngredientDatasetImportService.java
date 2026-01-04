@@ -109,7 +109,7 @@ public class IngredientDatasetImportService {
                     for (String stLabel : item.skinTypes()) {
                         if (isBlank(stLabel)) continue;
 
-                        SkinTypeEntity skinType = skinTypeRepository.findByLabel(stLabel.trim())
+                        SkinTypeEntity skinType = skinTypeRepository.findByLabelIgnoreCase(stLabel.trim())
                                 .orElseThrow(() -> new IllegalArgumentException("Unknown skin type: " + stLabel));
 
                         boolean added = skinType.getIngredients().add(entity);

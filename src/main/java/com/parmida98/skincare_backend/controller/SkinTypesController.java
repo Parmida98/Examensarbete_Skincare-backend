@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/skin-types")
+@RequestMapping("/skin-types")
 public class SkinTypesController {
 
     private final SkinTypeService skinTypeService;
@@ -22,7 +22,7 @@ public class SkinTypesController {
     public List<SkinTypeDTO> getAll() {
         return skinTypeService.getAllSkinTypes();
         /*
-        Frontend anropar /api/v1/skin-types
+        Frontend anropar /skin-types
         SkinTypeController tar emot requesten
         Controllern säger: “Service, ge mig alla hudtyper”
         Service skapar/hämtar listan

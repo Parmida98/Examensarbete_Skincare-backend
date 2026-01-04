@@ -1,38 +1,50 @@
 package com.parmida98.skincare_backend.service;
 
 import com.parmida98.skincare_backend.dto.IngredientDTO;
+import com.parmida98.skincare_backend.entities.IngredientEntity;
 import com.parmida98.skincare_backend.entities.SkinTypeEntity;
+import com.parmida98.skincare_backend.repository.IngredientRepository;
 import com.parmida98.skincare_backend.repository.SkinTypeRepository;
+import com.parmida98.skincare_backend.service.mapper.IngredientMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class IngredientService {
 
     private final SkinTypeRepository skinTypeRepository;
-    private final SkinTypeService skinTypeService;
+    private final IngredientRepository ingredientRepository;
+    private final IngredientMapper ingredientMapper;
 
     @Autowired
-    public IngredientService(SkinTypeRepository skinTypeRepository, SkinTypeService skinTypeService) {
+    public IngredientService(SkinTypeRepository skinTypeRepository, IngredientRepository ingredientRepository, IngredientMapper ingredientMapper) {
         this.skinTypeRepository = skinTypeRepository;
-        this.skinTypeService = skinTypeService;
+        this.ingredientRepository = ingredientRepository;
+        this.ingredientMapper = ingredientMapper;
     }
 
-    public List<IngredientDTO> getIngredientsBySkinType(String skinTypeLabel){
-        if (skinTypeLabel == null || skinTypeLabel.isEmpty()){
-            throw new IllegalArgumentException("skinTypeLabel cannot be null or empty");
+    public Page<IngredientDTO> getIngredientsBySkinType(
+            String skinTypeLabel,
+            String search,
+            Pageable pageable
+    ) {
+        // 1. grundvalidering
+        if (skinTypeLabel == null || skinTypeLabel.isBlank()){
+            throw new IllegalArgumentException("skinType is required");
         }
 
-        SkinTypeEntity skinType = skinTypeRepository.findByLabel(skinTypeLabel.trim())
-                .orElseThrow(() -> new IllegalArgumentException("Unknown skinType: " + skinTypeLabel));
+        // 2. validering mot db
+        SkinTypeEntity skinType = skinTypeRepository
+                .findByLabelIgnoreCase(skinTypeLabel.trim())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid skinType: " + skinTypeLabel));
 
+        // 3. Hämtar och filtrerar ingredienser från db och mappar till dto
+        Page<IngredientEntity> page = ingredientRepository
+                .findBySkinTypeWithSearch(skinType.getLabel(), search, pageable);
 
-        return skinType.getIngredients()
-                .stream()                                                                                        // bearbeta listan steg för steg. Stream låter: filtrera, mappa, sortera o samla resultat
-                .map(i -> new IngredientDTO(i.getInciName(), i.getDescription()))                 // map betyder:“Gör om varje element till något annat”, alltså från entity till dto
-                .sorted((a,b) -> a.inciName().compareToIgnoreCase(b.inciName()))    // sorterar resultatet alfabetiskt. a = första objektet, b = andra objektet
-                .toList();
+        return page.map(ingredientMapper::toDto); // Entity -> dto utan att tappa pagination-data
     }
 }

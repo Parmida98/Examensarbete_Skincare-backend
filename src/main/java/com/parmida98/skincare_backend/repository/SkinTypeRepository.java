@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface SkinTypeRepository extends JpaRepository<SkinTypeEntity, Long> {
 
     @EntityGraph(attributePaths = "ingredients") // @EntityGraph gör att ingredients hämtas direkt
-    Optional<SkinTypeEntity> findByLabel(String label);
+    Optional<SkinTypeEntity> findByLabelIgnoreCase(String label);
 }

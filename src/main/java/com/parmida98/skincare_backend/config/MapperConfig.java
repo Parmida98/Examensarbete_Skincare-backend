@@ -5,6 +5,10 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// Konfigurerar Jackson ObjectMapper
+// Styr hur JSON serialiseras
+// Används automatiskt av Spring när API svarar med JSON
+
 @Configuration
 public class MapperConfig {
 

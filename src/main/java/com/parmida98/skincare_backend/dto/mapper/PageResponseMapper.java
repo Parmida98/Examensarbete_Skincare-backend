@@ -1,4 +1,4 @@
-package com.parmida98.skincare_backend.service.mapper;
+package com.parmida98.skincare_backend.dto.mapper;
 
 import com.parmida98.skincare_backend.dto.PageResponseDTO;
 import org.springframework.data.domain.Page;

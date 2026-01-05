@@ -3,7 +3,7 @@ package com.parmida98.skincare_backend.controller;
 import com.parmida98.skincare_backend.dto.IngredientDTO;
 import com.parmida98.skincare_backend.dto.PageResponseDTO;
 import com.parmida98.skincare_backend.service.IngredientService;
-import com.parmida98.skincare_backend.service.mapper.PageResponseMapper;
+import com.parmida98.skincare_backend.dto.mapper.PageResponseMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

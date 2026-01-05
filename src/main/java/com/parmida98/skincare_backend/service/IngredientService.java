@@ -18,7 +18,6 @@ public class IngredientService {
     private final IngredientRepository ingredientRepository;
     private final IngredientMapper ingredientMapper;
 
-    @Autowired
     public IngredientService(SkinTypeRepository skinTypeRepository, IngredientRepository ingredientRepository, IngredientMapper ingredientMapper) {
         this.skinTypeRepository = skinTypeRepository;
         this.ingredientRepository = ingredientRepository;
@@ -39,7 +38,7 @@ public class IngredientService {
         SkinTypeEntity skinType = skinTypeRepository
                 .findByLabelIgnoreCase(skinTypeLabel.trim())
                 .orElseThrow(() ->
-                        new IllegalArgumentException("Invalid skinType: " + skinTypeLabel));
+                        new IllegalArgumentException("Invalid skinType: " + skinTypeLabel.trim()));
 
         // 3. Hämtar och filtrerar ingredienser från db och mappar till dto
         Page<IngredientEntity> page = ingredientRepository

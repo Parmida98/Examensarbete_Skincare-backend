@@ -59,13 +59,15 @@ public class SkinTypeEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void setIngredients(Set<IngredientEntity> ingredients) {
-        this.ingredients = ingredients;
-    }
 
-    public void addIngredient(IngredientEntity ingredient) {
-        ingredients.add(ingredient);
-        ingredient.getSkinTypes().add(this);
-    }
+    public boolean addIngredient(IngredientEntity ingredient) {
+        if (ingredient == null)
+            return false;
 
+        boolean added = ingredients.add(ingredient);
+        if (added) {
+            ingredient.getSkinTypes().add(this); // håller synkad i minnet
+        }
+        return  added;
+    }
 }

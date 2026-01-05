@@ -56,6 +56,14 @@ public class IngredientDatasetImportService {
                     new TypeReference<List<IngredientDatasetItem>>(){}
             );
 
+            // Cache: hämta alla skin types en gång
+            var skinTypeCache = skinTypeRepository.findAll()
+                    .stream()
+                    .collect(java.util.stream.Collectors.toMap(
+                            st -> st.getLabel().trim().toLowerCase(),
+                            st -> st
+                    ));
+
             int inserted = 0;
             int updated = 0;
             int skipped = 0;
@@ -84,41 +92,55 @@ public class IngredientDatasetImportService {
 
                 boolean changed = false;
 
-                // Undviker: uppdatering om inget ändrats
+                // Uppdatera description bara om den faktiskt ändrats
                 if (!isBlank(description) && !equalsIgnoreCaseSafe(description,entity.getDescription())){
                     entity.setDescription(description);
                     changed = true;
                 }
 
-                // Ny -> insert
-                // Ändrad -> update
-                // Oförändrad -> skip
-                if(isNew){
+                // Insert för nya ingredients (måste sparas innan relationer för att få id)
+                if(isNew) {
                     ingredientRepository.save(entity);
                     inserted++;
-                } else if (changed){
-                    entity.setUpdatedAt(OffsetDateTime.now());
-                    ingredientRepository.save(entity);
-                    updated++;
-                } else {
-                    skipped++;
                 }
+
+                boolean relationChanged = false;
 
                 // skapar mapping mellan skin type och ingrediens
                 if (item.skinTypes() != null) {
                     for (String stLabel : item.skinTypes()) {
                         if (isBlank(stLabel)) continue;
 
-                        SkinTypeEntity skinType = skinTypeRepository.findByLabelIgnoreCase(stLabel.trim())
-                                .orElseThrow(() -> new IllegalArgumentException("Unknown skin type: " + stLabel));
+                        String key = stLabel.trim().toLowerCase();
+                        SkinTypeEntity skinType = skinTypeCache.get(key);
 
-                        boolean added = skinType.getIngredients().add(entity);
+                        if (skinType == null) {
+                            throw new IllegalArgumentException("Unknown skin type: " + stLabel);
+                        }
+
+                        // synkar båda sidor i minnet
+                        boolean added = skinType.addIngredient(entity);
                         if (added) {
-                            skinTypeRepository.save(skinType);
+                            relationChanged = true;
                         }
                     }
                 }
 
+                // Om relationer ändrats räknas det som ändring
+                if (relationChanged) {
+                    changed = true;
+                }
+
+                // Update ska ske max en gång per ingredient (och bara om den inte är ny)
+                if (!isNew && relationChanged) {
+                    entity.setUpdatedAt(OffsetDateTime.now());
+                    updated++;
+                }
+
+                // Skipped: bara om den inte är ny och inget ändrades
+                if (!isNew && !changed) {
+                    skipped++;
+                }
             }
              logger.info("Ingredient dataset imported successfully. Total={}, Inserted={}, Updated={}, Skipped={}",
                      items.size(), inserted, updated, skipped);
@@ -126,7 +148,7 @@ public class IngredientDatasetImportService {
             return new ImportResult(items.size(), inserted, updated, skipped);
 
         } catch (Exception e) {
-            logger.error("Ingredient dataset import failed. (path{})", datasetPath, e);
+            logger.error("Ingredient dataset import failed. (path={})", datasetPath, e);
             throw new IllegalStateException("Ingredient dataset import failed: " + datasetPath, e);
         }
     }

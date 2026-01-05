@@ -17,15 +17,13 @@ public class IngredientDatasetImportRunner implements ApplicationRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(IngredientDatasetImportRunner.class);
 
-    private final IngredientDatasetImportService importService; // delegerar jobbet till service
+    private final IngredientDatasetImportService importService;
+    private final String datasetPath;
 
-    public IngredientDatasetImportRunner(IngredientDatasetImportService importService) {
+    public IngredientDatasetImportRunner(IngredientDatasetImportService importService, @Value("${app.dataset.import.path:classpath:datasets/ingredients.json}") String datasetPath) {
         this.importService = importService;
+        this.datasetPath = datasetPath;
     }
-
-    // Läser värde från application.properties. Mm property finns -> använd den. Annars -> använd default (json)
-    @Value("${app.dataset.import.path:classpath:datasets/ingredients.json}")
-    private String datasetPath;
 
     @Override
     public void run(ApplicationArguments args) {

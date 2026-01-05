@@ -10,11 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/skin-types")
-public class SkinTypesController {
+public class SkinTypeController {
 
     private final SkinTypeService skinTypeService;
 
-    public SkinTypesController(SkinTypeService skinTypeService) {
+    public SkinTypeController(SkinTypeService skinTypeService) {
         this.skinTypeService = skinTypeService;
     }
 

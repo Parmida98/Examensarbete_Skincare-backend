@@ -33,13 +33,7 @@ public class GlobalExceptionHandler {
 
         logger.warn("Validation failed on {}: {}", request.getRequestURI(), violations);
 
-        ApiErrorDTO body = build(
-                HttpStatus.BAD_REQUEST,
-                "Validation failed",
-                request,
-                violations
-        );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+        return respond(HttpStatus.BAD_REQUEST, "Validation failed", request, violations);
     }
 
     // 400 - missing query param
@@ -47,27 +41,16 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorDTO> handleMissingParam(MissingServletRequestParameterException e, HttpServletRequest request) {
         logger.warn("Missing request parameter on {}: {}", request.getRequestURI(), e.getMessage());
 
-        ApiErrorDTO body = build(
-                HttpStatus.BAD_REQUEST,
-                "Missing required parameter: " + e.getParameterName(),
-                request,
-                null
-        );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+        return respond(HttpStatus.BAD_REQUEST, "Missing required parameter: " + e.getParameterName(), request, List.of());
     }
 
     // 400 -unreadable, wrong types...
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiErrorDTO> handleNotReadable(HttpMessageNotReadableException e, HttpServletRequest request) {
-        logger.warn("Unreadable request body on {}: {}", request.getRequestURI(), e.getMessage());
+        logger.warn("Unreadable request body on {}", request.getRequestURI());
+        logger.debug("Unreadable request body details on {}: {}", request.getRequestURI(), e.getMessage(), e);
 
-        ApiErrorDTO body = build(
-                HttpStatus.BAD_REQUEST,
-                "Request body is unreadable",
-                request,
-                null
-        );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+        return respond(HttpStatus.BAD_REQUEST, "Request body is unreadable", request, List.of());
     }
 
     // 400
@@ -75,13 +58,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorDTO> handleIllegalArgument(IllegalArgumentException e, HttpServletRequest request) {
         logger.warn("Bad request on {}: {}", request.getRequestURI(), e.getMessage());
 
-        ApiErrorDTO body = build(
-                HttpStatus.BAD_REQUEST,
-                e.getMessage(),
-                request,
-                null
-        );
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+        return respond(HttpStatus.BAD_REQUEST, e.getMessage(), request, List.of());
     }
 
     // 404 - no handler found
@@ -89,13 +66,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorDTO> handleNotFound(NoHandlerFoundException e, HttpServletRequest request) {
         logger.warn("Not found: {} {}", e.getHttpMethod(), e.getRequestURL());
 
-        ApiErrorDTO body = build(
-                HttpStatus.NOT_FOUND,
-                "Endpoint not found",
-                request,
-                null
-        );
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+        return respond(HttpStatus.NOT_FOUND, "Endpoint not found", request, List.of());
     }
 
     // other errors
@@ -104,12 +75,7 @@ public class GlobalExceptionHandler {
         HttpStatus status = HttpStatus.valueOf(e.getStatusCode().value());
         logger.warn("ErrorResponse on {}: {} ({})", request.getRequestURI(), e.getMessage(), status);
 
-        ApiErrorDTO body = build(
-                status,
-                e.getMessage(),
-                request,
-                null);
-        return ResponseEntity.status(status).body(body);
+        return respond(status, e.getMessage(), request, List.of());
     }
 
     // 500 - fallback
@@ -117,23 +83,35 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorDTO> handleGeneric(Exception e, HttpServletRequest request) {
         logger.error("Internal server error on: {}: {}", request.getRequestURI(), e.getMessage(), e);
 
-        ApiErrorDTO body = build(
-                HttpStatus.INTERNAL_SERVER_ERROR,
-                "Internal server error",
-                request,
-                null
-        );
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+        return respond(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error", request, List.of());
     }
 
-    private ApiErrorDTO build(HttpStatus status, String message, HttpServletRequest request, List<ApiErrorDTO.FieldViolationDTO> violations) {
+
+    private ResponseEntity<ApiErrorDTO> respond(
+            HttpStatus status,
+            String message,
+            HttpServletRequest request,
+            List<ApiErrorDTO.FieldViolationDTO> violations
+    ) {
+        ApiErrorDTO body = build(status, message, request, violations);
+        return ResponseEntity.status(status).body(body);
+    }
+
+    private ApiErrorDTO build(
+            HttpStatus status,
+            String message,
+            HttpServletRequest request,
+            List<ApiErrorDTO.FieldViolationDTO> violations
+    ) {
+        List<ApiErrorDTO.FieldViolationDTO> safeViolations = (violations == null) ? List.of() : violations;
+
         return new ApiErrorDTO(
                 OffsetDateTime.now(),
                 status.value(),
                 status.getReasonPhrase(),
                 message,
                 request.getRequestURI(),
-                violations
+                safeViolations
         );
     }
 

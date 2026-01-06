@@ -26,6 +26,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.springframework.boot:spring-boot-starter-jackson")
 	implementation("org.flywaydb:flyway-database-postgresql")
+	implementation ("org.springframework.boot:spring-boot-starter-actuator")
+
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 

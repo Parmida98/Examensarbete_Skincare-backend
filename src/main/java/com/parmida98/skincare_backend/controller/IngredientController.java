@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/ingredients")
+@RequestMapping("/skin-match/ingredients")
 public class IngredientController {
 
     private final IngredientService ingredientService;

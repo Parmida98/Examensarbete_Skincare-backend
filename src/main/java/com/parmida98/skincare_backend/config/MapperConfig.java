@@ -16,8 +16,7 @@ public class MapperConfig {
     public ObjectMapper objectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.findAndRegisterModules();
-        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // findAndRegisterModules() räcker ofta för datumhantering.
-                                                                        //→ Dubbelkolla om du verkligen behöver WRITE_DATES_AS_TIMESTAMPS-inställningen.
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         return mapper;
     }
 }

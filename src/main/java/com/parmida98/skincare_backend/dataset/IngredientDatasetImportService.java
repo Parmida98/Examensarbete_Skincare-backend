@@ -74,7 +74,7 @@ public class IngredientDatasetImportService {
                     continue;
                 }
 
-                // Tar bort: onödiga mellanslag, inkonsekvent indata
+                // Tar bort: onödiga mellanslag
                 String inciName = item.inciName().trim();
                 String description = item.description() == null ? null : item.description().trim();
 
@@ -98,7 +98,7 @@ public class IngredientDatasetImportService {
                     changed = true;
                 }
 
-                // Insert för nya ingredients (måste sparas innan relationer för att få id)
+                // Insert för nya ingredients
                 if(isNew) {
                     ingredientRepository.save(entity);
                     inserted++;
@@ -132,8 +132,9 @@ public class IngredientDatasetImportService {
                 }
 
                 // Update ska ske max en gång per ingredient (och bara om den inte är ny)
-                if (!isNew && relationChanged) {
+                if (!isNew && changed) {
                     entity.setUpdatedAt(OffsetDateTime.now());
+                    ingredientRepository.save(entity);
                     updated++;
                 }
 
@@ -160,7 +161,7 @@ public class IngredientDatasetImportService {
     private boolean equalsIgnoreCaseSafe(String str1, String str2){
         if(str1 == null && str2 == null) return true;
         if(str1 == null || str2 == null) return false;
-        return str1.trim().equalsIgnoreCase(str2.trim()); // .trim() tar bort alla blanksteg i början och slutet av en sträng
+        return str1.trim().equalsIgnoreCase(str2.trim());
     }
 
     public record ImportResult(int total, int inserted, int updated, int skipped) {}

@@ -6,7 +6,6 @@ import com.parmida98.skincare_backend.entities.SkinTypeEntity;
 import com.parmida98.skincare_backend.repository.IngredientRepository;
 import com.parmida98.skincare_backend.repository.SkinTypeRepository;
 import com.parmida98.skincare_backend.service.mapper.IngredientMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -44,6 +43,6 @@ public class IngredientService {
         Page<IngredientEntity> page = ingredientRepository
                 .findBySkinTypeWithSearch(skinType.getLabel(), search, pageable);
 
-        return page.map(ingredientMapper::toDto); // Entity -> dto utan att tappa pagination-data
+        return page.map(ingredientMapper::toDto); // entity -> dto utan att tappa pagination-data
     }
 }

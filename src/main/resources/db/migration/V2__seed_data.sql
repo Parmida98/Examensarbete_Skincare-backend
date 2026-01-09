@@ -23,7 +23,7 @@ VALUES
     ('Squalane',           'An emollient that supports softness and reduces moisture loss.', NOW(), NOW())
 ON CONFLICT (inci_name) DO NOTHING;
 
--- mapping: skin type -> ingredients VAD STÅR ST FÖR
+-- mapping: skin type -> ingredients
 -- DRY -> Glycerin, Hyaluronic Acid, Ceramide, Squalane
 INSERT INTO skin_type_ingredient (skin_type_id, ingredient_id)
 SELECT st.id, i.id

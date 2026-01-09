@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Map;
 
 /*
 samma INCI-namn ska inte skapas flera gånger
@@ -57,7 +58,7 @@ public class IngredientDatasetImportService {
             );
 
             // Cache: hämta alla skin types en gång
-            var skinTypeCache = skinTypeRepository.findAll()
+            Map<String, SkinTypeEntity> skinTypeCache = skinTypeRepository.findAll()
                     .stream()
                     .collect(java.util.stream.Collectors.toMap(
                             st -> st.getLabel().trim().toLowerCase(),

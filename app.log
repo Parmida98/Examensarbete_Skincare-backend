@@ -1,17 +1,20 @@
-2026-01-08T14:45:41.011+01:00  INFO 42546 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 42546 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2026-01-08T14:45:41.025+01:00  INFO 42546 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-01-08T14:45:48.994+01:00  INFO 42546 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-01-08T14:45:49.000+01:00  INFO 42546 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-01-08T14:45:54.065+01:00  INFO 42546 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-01-08T14:46:01.184+01:00  INFO 42546 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@76aa3001
-2026-01-08T14:46:01.189+01:00  INFO 42546 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-01-08T14:46:01.374+01:00  INFO 42546 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
-2026-01-08T14:46:02.218+01:00  INFO 42546 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.129s)
-2026-01-08T14:46:02.301+01:00  INFO 42546 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
-2026-01-08T14:46:02.307+01:00  INFO 42546 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-01-08T14:46:02.601+01:00  INFO 42546 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-01-08T14:46:02.898+01:00  INFO 42546 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-01-08T14:46:04.588+01:00  INFO 42546 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-01-09T00:22:03.482+01:00  WARN 96364 --- [skincare-backend] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=27s771ms), soft-evicting connections from pool.
+2026-01-09T01:08:32.722+01:00  INFO 96364 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-09T01:08:32.742+01:00  INFO 96364 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-09T01:17:02.677+01:00  INFO 9669 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 9669 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
+2026-01-09T01:17:02.683+01:00  INFO 9669 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-01-09T01:17:05.276+01:00  INFO 9669 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-09T01:17:05.277+01:00  INFO 9669 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-09T01:17:06.169+01:00  INFO 9669 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-09T01:17:06.777+01:00  INFO 9669 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6df812f0
+2026-01-09T01:17:06.779+01:00  INFO 9669 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-09T01:17:06.911+01:00  INFO 9669 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
+2026-01-09T01:17:07.355+01:00  INFO 9669 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.105s)
+2026-01-09T01:17:07.408+01:00  INFO 9669 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
+2026-01-09T01:17:07.415+01:00  INFO 9669 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-01-09T01:17:07.583+01:00  INFO 9669 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-01-09T01:17:07.730+01:00  INFO 9669 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-01-09T01:17:09.010+01:00  INFO 9669 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -23,113 +26,10 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-01-08T14:46:06.222+01:00  INFO 42546 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-08T14:46:09.598+01:00  INFO 42546 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 30.8 seconds (process running for 34.432)
-2026-01-08T14:46:09.604+01:00  INFO 42546 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
-2026-01-08T14:46:10.120+01:00  INFO 42546 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=0, Updated=0, Skipped=27
-2026-01-08T14:47:17.260+01:00  INFO 42546 --- [skincare-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-08T15:17:06.618+01:00  INFO 42546 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-01-08T15:17:06.635+01:00  INFO 42546 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-01-08T15:17:13.580+01:00  INFO 45084 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 45084 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2026-01-08T15:17:13.584+01:00  INFO 45084 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-01-08T15:17:16.332+01:00  INFO 45084 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-01-08T15:17:16.332+01:00  INFO 45084 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-01-08T15:17:17.175+01:00  INFO 45084 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-01-08T15:17:17.605+01:00  INFO 45084 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4933d674
-2026-01-08T15:17:17.612+01:00  INFO 45084 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-01-08T15:17:17.701+01:00  INFO 45084 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
-2026-01-08T15:17:18.209+01:00  INFO 45084 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.276s)
-2026-01-08T15:17:18.257+01:00  INFO 45084 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
-2026-01-08T15:17:18.262+01:00  INFO 45084 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-01-08T15:17:18.375+01:00  INFO 45084 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-01-08T15:17:18.503+01:00  INFO 45084 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-01-08T15:17:19.766+01:00  INFO 45084 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.0
-	Default catalog/schema: skincare/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-01-08T15:17:21.468+01:00  INFO 45084 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-08T15:17:24.437+01:00  INFO 45084 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 11.505 seconds (process running for 13.334)
-2026-01-08T15:17:24.443+01:00  INFO 45084 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
-2026-01-08T15:17:24.822+01:00  INFO 45084 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=0, Updated=0, Skipped=27
-2026-01-08T15:17:25.382+01:00  INFO 45084 --- [skincare-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-08T15:18:12.826+01:00  WARN 45084 --- [skincare-backend] [http-nio-8080-exec-1] c.p.s.e.GlobalExceptionHandler           : Not found: GET /skin-types
-2026-01-08T15:18:21.183+01:00  WARN 45084 --- [skincare-backend] [http-nio-8080-exec-2] c.p.s.e.GlobalExceptionHandler           : Not found: GET /skin-types
-2026-01-08T15:18:46.253+01:00  WARN 45084 --- [skincare-backend] [http-nio-8080-exec-3] c.p.s.e.GlobalExceptionHandler           : Not found: GET /skinmatch/skin-types
-2026-01-08T19:14:41.100+01:00  WARN 45084 --- [skincare-backend] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m51s595ms).
-2026-01-08T19:54:12.564+01:00  WARN 45084 --- [skincare-backend] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m31s488ms).
-2026-01-08T20:07:11.881+01:00  INFO 45084 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-01-08T20:07:11.906+01:00  INFO 45084 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-01-08T20:07:38.708+01:00  INFO 67847 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 67847 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2026-01-08T20:07:38.712+01:00  INFO 67847 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-01-08T20:07:40.838+01:00  INFO 67847 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-01-08T20:07:40.838+01:00  INFO 67847 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-01-08T20:07:41.652+01:00  INFO 67847 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-01-08T20:07:42.108+01:00  INFO 67847 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e6f33d6
-2026-01-08T20:07:42.111+01:00  INFO 67847 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-01-08T20:07:42.225+01:00  INFO 67847 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
-2026-01-08T20:07:42.599+01:00  INFO 67847 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.119s)
-2026-01-08T20:07:42.631+01:00  INFO 67847 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
-2026-01-08T20:07:42.637+01:00  INFO 67847 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-01-08T20:07:42.772+01:00  INFO 67847 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-01-08T20:07:42.911+01:00  INFO 67847 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-01-08T20:07:44.145+01:00  INFO 67847 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.0
-	Default catalog/schema: skincare/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-01-08T20:07:45.748+01:00  INFO 67847 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-08T20:07:48.898+01:00  INFO 67847 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 10.806 seconds (process running for 12.848)
-2026-01-08T20:07:48.912+01:00  INFO 67847 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
-2026-01-08T20:07:49.411+01:00  INFO 67847 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=0, Updated=0, Skipped=27
-2026-01-08T20:07:49.698+01:00  INFO 67847 --- [skincare-backend] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-08T21:12:06.542+01:00  WARN 67847 --- [skincare-backend] [http-nio-8080-exec-10] c.p.s.e.GlobalExceptionHandler           : Not found: GET /skin-types
-2026-01-08T21:12:07.039+01:00  WARN 67847 --- [skincare-backend] [http-nio-8080-exec-1] c.p.s.e.GlobalExceptionHandler           : Not found: GET /favicon.ico
-2026-01-08T23:07:42.704+01:00  INFO 67847 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-01-08T23:07:42.769+01:00  INFO 67847 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-01-08T23:08:29.693+01:00  INFO 88054 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Starting SkincareBackendApplication using Java 21.0.8 with PID 88054 (/Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend/build/classes/java/main started by Skolan in /Users/Skolan/Library/Mobile Documents/com~apple~CloudDocs/Documents/Examensarbete/skincare-backend)
-2026-01-08T23:08:29.700+01:00  INFO 88054 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : No active profile set, falling back to 1 default profile: "default"
-2026-01-08T23:08:32.268+01:00  INFO 88054 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-01-08T23:08:32.269+01:00  INFO 88054 --- [skincare-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-01-08T23:08:33.184+01:00  INFO 88054 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-01-08T23:08:33.669+01:00  INFO 88054 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1f57d8ae
-2026-01-08T23:08:33.671+01:00  INFO 88054 --- [skincare-backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-01-08T23:08:33.764+01:00  INFO 88054 --- [skincare-backend] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/skincare (PostgreSQL 18.0)
-2026-01-08T23:08:34.074+01:00  INFO 88054 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.125s)
-2026-01-08T23:08:34.135+01:00  INFO 88054 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
-2026-01-08T23:08:34.139+01:00  INFO 88054 --- [skincare-backend] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-01-08T23:08:34.307+01:00  INFO 88054 --- [skincare-backend] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-01-08T23:08:34.449+01:00  INFO 88054 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-01-08T23:08:35.759+01:00  INFO 88054 --- [skincare-backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:postgresql://localhost:5432/skincare]
-	Database driver: PostgreSQL JDBC Driver
-	Database dialect: PostgreSQLDialect
-	Database version: 18.0
-	Default catalog/schema: skincare/public
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-01-08T23:08:37.559+01:00  INFO 88054 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-08T23:08:40.970+01:00  INFO 88054 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 12.016 seconds (process running for 14.06)
-2026-01-08T23:08:40.979+01:00  INFO 88054 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
-2026-01-08T23:08:41.456+01:00  INFO 88054 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=0, Updated=0, Skipped=27
-2026-01-08T23:08:42.013+01:00  INFO 88054 --- [skincare-backend] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-08T23:28:22.952+01:00  INFO 88054 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-01-08T23:28:22.980+01:00  INFO 88054 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-09T01:17:10.924+01:00  INFO 9669 --- [skincare-backend] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-09T01:17:14.539+01:00  INFO 9669 --- [skincare-backend] [restartedMain] c.p.s.SkincareBackendApplication         : Started SkincareBackendApplication in 12.538 seconds (process running for 14.411)
+2026-01-09T01:17:14.549+01:00  INFO 9669 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportRunner    : Dataset import enabled. Importing ingredients from: classpath:datasets/ingredients.json
+2026-01-09T01:17:15.035+01:00  INFO 9669 --- [skincare-backend] [restartedMain] c.p.s.d.IngredientDatasetImportService   : Ingredient dataset imported successfully. Total=27, Inserted=0, Updated=0, Skipped=27
+2026-01-09T01:17:15.589+01:00  INFO 9669 --- [skincare-backend] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-09T01:22:20.099+01:00  INFO 9669 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-09T01:22:20.109+01:00  INFO 9669 --- [skincare-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
